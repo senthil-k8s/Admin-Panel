@@ -1,68 +1,64 @@
+import { TbCategory } from "react-icons/tb";
+import { TbReportAnalytics } from "react-icons/tb";
+import { LuTicket } from "react-icons/lu";
+import { TiDocumentText } from "react-icons/ti";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { IoIosNotifications } from "react-icons/io";
+import { IoIosSettings } from "react-icons/io";
+import { useState } from "react";
 
 const Menu = () => {
+    const [activeLink, setActiveLink] = useState("/");
+    console.log(activeLink);
     return (
         <div>
             <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-white transition-all duration-300 border-none z-10 sidebar">
                 <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow mt-5">
                     <ul className="flex flex-col py-4 space-y-2">
                         <li>
-                            <a href="/" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5 " viewBox="0 0 24 24" fill="#A9A9A9" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.24 2H5.34C3.15 2 2 3.15 2 5.33V7.23C2 9.41 3.15 10.56 5.33 10.56H7.23C9.41 10.56 10.56 9.41 10.56 7.23V5.33C10.57 3.15 9.42 2 7.24 2Z" fill="#A9A9A9"></path> <path d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z" fill="#A9A9A9"></path> <path d="M18.6695 13.4297H16.7695C14.5895 13.4297 13.4395 14.5797 13.4395 16.7597V18.6597C13.4395 20.8397 14.5895 21.9897 16.7695 21.9897H18.6695C20.8495 21.9897 21.9995 20.8397 21.9995 18.6597V16.7597C21.9995 14.5797 20.8495 13.4297 18.6695 13.4297Z" fill="#A9A9A9"></path> <path d="M7.24 13.4297H5.34C3.15 13.4297 2 14.5797 2 16.7597V18.6597C2 20.8497 3.15 21.9997 5.33 21.9997H7.23C9.41 21.9997 10.56 20.8497 10.56 18.6697V16.7697C10.57 14.5797 9.42 13.4297 7.24 13.4297Z" fill="#A9A9A9"></path> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Dashboard</span>
+                            <a href="/" onClick={() => setActiveLink("/")} className={`relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group ${activeLink === "/" ? "text-blue-600" : ""}`}>
+                                <TbCategory className={`ml-2 w-6 h-6 text-sm text-gray-400 font-nunito font-medium group-hover:text-[#605BFF] ${activeLink === "/" ? "text-[#605BFF]" : ""}`} />
+                                <span className={`ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF] ${activeLink === "/" ? "text-[#605BFF]" : ""}`}>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/upload" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5" fill="#A9A9A9" stroke="#A9A9A9" viewBox="0 0 24 24" id="meteor-icon-kit__regular-analytics" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" ></g><g id="SVGRepo_tracerCarrier" ></g><g id="SVGRepo_iconCarrier"><path d="M3 15C2.44772 15 2 15.4477 2 16V21C2 21.5523 2.44772 22 3 22C3.55228 22 4 21.5523 4 21V16C4 15.4477 3.55228 15 3 15zM3 13C4.65685 13 6 14.3431 6 16V21C6 22.6569 4.65685 24 3 24C1.34315 24 0 22.6569 0 21V16C0 14.3431 1.34315 13 3 13zM11 0C12.6569 0 14 1.34315 14 3V21C14 22.6569 12.6569 24 11 24C9.3431 24 8 22.6569 8 21V3C8 1.34315 9.3431 0 11 0zM11 2C10.4477 2 10 2.44772 10 3V21C10 21.5523 10.4477 22 11 22C11.5523 22 12 21.5523 12 21V3C12 2.44772 11.5523 2 11 2zM19 7C20.6569 7 22 8.34315 22 10V21C22 22.6569 20.6569 24 19 24C17.3431 24 16 22.6569 16 21V10C16 8.34315 17.3431 7 19 7zM19 9C18.4477 9 18 9.44771 18 10V21C18 21.5523 18.4477 22 19 22C19.5523 22 20 21.5523 20 21V10C20 9.44771 19.5523 9 19 9z" fill="#A9A9A9"></path></g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Upload</span>
+                        <a href="/upload" onClick={() => setActiveLink("/upload")} className={`relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group ${activeLink === "/upload" ? "text-[#605BFF]" : ""}`}>
+                                <TbReportAnalytics className={`ml-2 w-6 h-6 text-sm text-gray-400 font-nunito font-medium group-hover:text-[#605BFF] ${activeLink === "/upload" ? "text-[#605BFF]" : ""}`} />
+                                <span className={`ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF] ${activeLink === "/upload" ? "text-[#605BFF]" : ""}`}>Upload</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/invoice" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#A9A9A9" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0079 19.0029L14.0137 17C14.0137 16.4477 14.4625 16 15.0162 16C15.5698 16 16.0187 16.4477 16.0187 17V18.9765C16.0187 19.458 16.0187 19.6988 16.1731 19.8464C16.3275 19.9941 16.5637 19.984 17.0362 19.964C18.8991 19.8852 20.0437 19.6332 20.8504 18.8284C21.6591 18.0218 21.911 16.8766 21.9894 15.0105C22.005 14.6405 22.0128 14.4554 21.9437 14.332C21.8746 14.2085 21.5987 14.0545 21.0469 13.7463C20.4341 13.4041 20.0199 12.7503 20.0199 12C20.0199 11.2497 20.4341 10.5959 21.0469 10.2537C21.5987 9.94554 21.8746 9.79147 21.9437 9.66803C22.0128 9.54458 22.005 9.35954 21.9894 8.98947C21.911 7.12339 21.6591 5.97823 20.8504 5.17157C19.9727 4.29604 18.6952 4.0748 16.5278 4.0189C16.2482 4.01169 16.0187 4.23718 16.0187 4.51618V7C16.0187 7.55228 15.5698 8 15.0162 8C14.4625 8 14.0137 7.55228 14.0137 7L14.0064 4.49855C14.0056 4.22298 13.7814 4 13.5052 4H9.99502C6.21439 4 4.32407 4 3.14958 5.17157C2.34091 5.97823 2.08903 7.12339 2.01058 8.98947C1.99502 9.35954 1.98724 9.54458 2.05634 9.66802C2.12545 9.79147 2.40133 9.94554 2.95308 10.2537C3.56586 10.5959 3.98007 11.2497 3.98007 12C3.98007 12.7503 3.56586 13.4041 2.95308 13.7463C2.40133 14.0545 2.12545 14.2085 2.05634 14.332C1.98724 14.4554 1.99502 14.6405 2.01058 15.0105C2.08903 16.8766 2.34091 18.0218 3.14958 18.8284C4.32407 20 6.21438 20 9.99502 20H13.0054C13.4767 20 13.7124 20 13.8591 19.8541C14.0058 19.7081 14.0065 19.4731 14.0079 19.0029ZM16.0187 13V11C16.0187 10.4477 15.5698 10 15.0162 10C14.4625 10 14.0137 10.4477 14.0137 11V13C14.0137 13.5523 14.4625 14 15.0162 14C15.5698 14 16.0187 13.5523 16.0187 13Z" fill="#A9A9A9"></path> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Invoice</span>
+                            <a href="/invoice" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group">
+                                <LuTicket className="ml-2 w-6 h-6 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]" />
+                                <span className="ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]">Invoice</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/schedule" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#A9A9A9" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z" stroke="#A9A9A9" stroke-width="1.5"></path> <path d="M8 12H16" stroke="#A9A9A9" stroke-width="1.5" stroke-linecap="round"></path> <path d="M8 8H16" stroke="#A9A9A9" stroke-width="1.5" stroke-linecap="round"></path> <path d="M8 16H13" stroke="#A9A9A9" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Schedule</span>
+                            <a href="/schedule" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group">
+                                <TiDocumentText className="ml-2 w-6 h-6 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]" />
+                                <span className="ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]">Schedule</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/calender" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#A9A9A9" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14H16C16.5523 14 17 13.5523 17 13C17 12.4477 16.5523 12 16 12H8Z" fill="#A9A9A9"></path> <path d="M7 17C7 16.4477 7.44772 16 8 16H12C12.5523 16 13 16.4477 13 17C13 17.5523 12.5523 18 12 18H8C7.44772 18 7 17.5523 7 17Z" fill="#A9A9A9"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M8 3C8 2.44772 7.55228 2 7 2C6.44772 2 6 2.44772 6 3V4.10002C3.71776 4.56329 2 6.58104 2 9V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V9C22 6.58104 20.2822 4.56329 18 4.10002V3C18 2.44772 17.5523 2 17 2C16.4477 2 16 2.44772 16 3V4H8V3ZM20 10H4V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V10ZM4.17071 8C4.58254 6.83481 5.69378 6 7 6H17C18.3062 6 19.4175 6.83481 19.8293 8H4.17071Z" fill="#A9A9A9"></path> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Calender</span>
+                            <a href="/calendar" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group">
+                                <FaRegCalendarAlt className="ml-2 w-6 h-6 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]" />
+                                <span className="ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]">Calendar</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/notification" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg className="w-5 h-5" fill="#A9A9A9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_15_159)"> <rect width="24" height="24" fill="white"></rect> <path d="M9.5 19C8.89555 19 7.01237 19 5.61714 19C4.87375 19 4.39116 18.2177 4.72361 17.5528L5.57771 15.8446C5.85542 15.2892 6 14.6774 6 14.0564C6 13.2867 6 12.1434 6 11C6 9 7 5 12 5C17 5 18 9 18 11C18 12.1434 18 13.2867 18 14.0564C18 14.6774 18.1446 15.2892 18.4223 15.8446L19.2764 17.5528C19.6088 18.2177 19.1253 19 18.382 19H14.5M9.5 19C9.5 21 10.5 22 12 22C13.5 22 14.5 21 14.5 19M9.5 19C11.0621 19 14.5 19 14.5 19" stroke="#A9A9A9" stroke-linejoin="round"></path> <path d="M12 5V3" stroke="#A9A9A9" stroke-linecap="round" stroke-linejoin="round"></path> </g> <defs> <clipPath id="clip0_15_159"> <rect width="24" height="24" fill="white"></rect> </clipPath> </defs> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Notification</span>
+                            <a href="/notification" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group">
+                                <IoIosNotifications className="ml-2 w-6 h-6 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]" />
+                                <span className="ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]">Notification</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/settings" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-blue-800 pr-6">
-                                <span className="inline-flex justify-center items-center ml-4">
-                                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="#A9A9A9" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="3" stroke="#A9A9A9" stroke-width="1.5"></circle> <path d="M3.66122 10.6392C4.13377 10.9361 4.43782 11.4419 4.43782 11.9999C4.43781 12.558 4.13376 13.0638 3.66122 13.3607C3.33966 13.5627 3.13248 13.7242 2.98508 13.9163C2.66217 14.3372 2.51966 14.869 2.5889 15.3949C2.64082 15.7893 2.87379 16.1928 3.33973 16.9999C3.80568 17.8069 4.03865 18.2104 4.35426 18.4526C4.77508 18.7755 5.30694 18.918 5.83284 18.8488C6.07287 18.8172 6.31628 18.7185 6.65196 18.5411C7.14544 18.2803 7.73558 18.2699 8.21895 18.549C8.70227 18.8281 8.98827 19.3443 9.00912 19.902C9.02332 20.2815 9.05958 20.5417 9.15224 20.7654C9.35523 21.2554 9.74458 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8478 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.9021C15.0117 19.3443 15.2977 18.8281 15.7811 18.549C16.2644 18.27 16.8545 18.2804 17.3479 18.5412C17.6837 18.7186 17.9271 18.8173 18.1671 18.8489C18.693 18.9182 19.2249 18.7756 19.6457 18.4527C19.9613 18.2106 20.1943 17.807 20.6603 17C20.8677 16.6407 21.029 16.3614 21.1486 16.1272M20.3387 13.3608C19.8662 13.0639 19.5622 12.5581 19.5621 12.0001C19.5621 11.442 19.8662 10.9361 20.3387 10.6392C20.6603 10.4372 20.8674 10.2757 21.0148 10.0836C21.3377 9.66278 21.4802 9.13092 21.411 8.60502C21.3591 8.2106 21.1261 7.80708 20.6601 7.00005C20.1942 6.19301 19.9612 5.7895 19.6456 5.54732C19.2248 5.22441 18.6929 5.0819 18.167 5.15113C17.927 5.18274 17.6836 5.2814 17.3479 5.45883C16.8544 5.71964 16.2643 5.73004 15.781 5.45096C15.2977 5.1719 15.0117 4.6557 14.9909 4.09803C14.9767 3.71852 14.9404 3.45835 14.8478 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74458 2.35523 9.35523 2.74458 9.15224 3.23463C9.05958 3.45833 9.02332 3.71848 9.00912 4.09794C8.98826 4.65566 8.70225 5.17191 8.21891 5.45096C7.73557 5.73002 7.14548 5.71959 6.65205 5.4588C6.31633 5.28136 6.0729 5.18269 5.83285 5.15108C5.30695 5.08185 4.77509 5.22436 4.35427 5.54727C4.03866 5.78945 3.80569 6.19297 3.33974 7C3.13231 7.35929 2.97105 7.63859 2.85138 7.87273" stroke="#A9A9A9" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-                                </span>
-                                <span className="ml-2 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium hover:text-blue-600">Settings</span>
+                            <a href="/settings" className="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#605BFF] dark:hover:border-blue-800 pr-6 group">
+                                <IoIosSettings className="ml-2 w-6 h-6 text-sm tracking-wide truncate text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]" />
+                                <span className="ml-2 text-sm tracking-wide truncate md:block hidden text-gray-400 font-nunito font-medium group-hover:text-[#605BFF]">Settings</span>
+
                             </a>
                         </li>
                     </ul>
-                    <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs">Copyright @2021</p>
                 </div>
             </div>
         </div>

@@ -44,7 +44,7 @@ const TableRow = ({ item, index }) => {
                     )}
                 </select>
             </td>
-            <td className=' text-gray-600 text-left text-sm flex flex-wrap w-auto'>
+            <td className=' text-gray-600 text-left text-sm flex flex-wrap w-[400px]'>
                 {selectedTags.map((tag) => (
                     <div
                         key={tag}

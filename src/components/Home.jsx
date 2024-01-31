@@ -4,20 +4,19 @@ import { getInputData, saveInputData } from "../services/api.service";
 import Spinner from "./Spinner";
 import { toast } from 'react-toastify';
 import Table from "./Table";
-import * as XLSX from "xlsx";
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null)
     const [data, setData] = useState([]);
-    useEffect( () => {
+    useEffect(() => {
         const fetchData = async () => {
             const fetchedData = await getInputData();
             setData(fetchedData);
         };
         fetchData();
-    },[])
-    
+    }, [])
+
 
     const onFileChange = (e) => {
         console.log(e);
@@ -33,16 +32,6 @@ const Home = () => {
         try {
             e.preventDefault();
             setIsLoading(true);
-            // const reader = new FileReader();
-            // reader.readAsBinaryString(selectedFile);
-            // reader.onload= (e) => {
-            //     const data = e.target.result;
-            //     const workbook = XLSX.read(data, { type : "binary"});
-            //     const sheetName = workbook.SheetNames[0];
-            //     const sheet = workbook.Sheets[sheetName];
-            //     const parsedData = XLSX.utils.sheet_to_json(sheet);
-            //     setData(parsedData);
-            // }
             const formData = new FormData();
             formData.append('file', selectedFile);
             const response = await saveInputData(formData);
@@ -63,20 +52,21 @@ const Home = () => {
         <div>
             <div className="h-full ml-14 mt-24 mb-10 md:ml-64 flex flex-col justify-center items-center">
                 <>
+                    
                     <form
                         className="w-1/2 h-1/2 flex flex-col justify-center items-center p-4"
                         onSubmit={handleSubmit}
                     >
                         {selectedFile ? (
-                            <div className="w-full flex flex-col items-center p-24 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-dashed cursor-pointer hover:bg-blue hover:text-white">
-                                <img width={"8%"} height={"8%"} src={Excel} alt="" />
+                            <div className="w-full flex flex-col items-center md:p-24 p-4 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-dashed cursor-pointer hover:bg-blue hover:text-white">
+                                <img src={Excel} alt="" className="w-8 h-8" />
                                 <p className="font-nunito text-gray-400 text-lg">{selectedFile.name + ".xls"}</p>
                                 <button onClick={removeFile} className="text-red-500">Remove</button>
                             </div>
                         ) : (
                             <>
-                                <label htmlFor="file-upload" className="w-full flex flex-col items-center p-24 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-dashed cursor-pointer hover:bg-blue hover:text-white">
-                                    <img width={"8%"} height={"8%"} src={Excel} alt="" />
+                                <label htmlFor="file-upload" className="w-full flex flex-col items-center md:p-24 p-4 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-dashed cursor-pointer hover:bg-blue hover:text-white">
+                                    <img src={Excel} alt="" className="w-8 h-8" />
                                     <p className="mt-2 font-nunito text-gray-400 text-lg">Drop your excel File or <span className="text-[#605BFF] font-nunito">browse</span></p>
                                     <input type='file' className="hidden" id="file-upload" accept=".xlsx, .xls" onChange={onFileChange} />
                                 </label>
@@ -89,9 +79,9 @@ const Home = () => {
                     </form>
                 </>
                 <div className="w-full">
-                {data.length > 0 && (
-                    <Table data={data} />
-                )}
+                    {data.length > 0 && (
+                        <Table data={data} />
+                    )}
                 </div>
             </div>
 

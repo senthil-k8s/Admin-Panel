@@ -7,7 +7,9 @@ export default {
   theme: {
     fontFamily: {
       'nunito': ['Nunito', 'sans-serif'],
-      'figTree': ['Figtree', 'sans-serif']
+      'figTree': ['Figtree', 'sans-serif'],
+      'montserrat': ['Montserrat', 'sans-serif'],
+      'lato': ['Lato', 'sans-serif'],
     },
     extend: {
       fontSize: {

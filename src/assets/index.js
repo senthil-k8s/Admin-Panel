@@ -12,6 +12,8 @@ import Twitter from "../assets/images/Twitter.png"
 import Logo from "../assets/images/Logo.png"
 import Base from "../assets/images/Base.png"
 import Excel from "../assets/images/Excel.png"
+import Ellipse from "../assets/images/Ellipse.png"
+import BrandLogo from "../assets/images/brandLogo.png"
 
 export {
     Schedule,
@@ -27,5 +29,7 @@ export {
     Twitter,
     Logo,
     Base,
-    Excel
+    Excel,
+    Ellipse,
+    BrandLogo
 };
