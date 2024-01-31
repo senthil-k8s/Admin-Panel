@@ -7,6 +7,7 @@ export default {
   theme: {
     fontFamily: {
       'nunito': ['Nunito', 'sans-serif'],
+      'figTree': ['Figtree', 'sans-serif']
     },
     extend: {
       fontSize: {
@@ -16,7 +17,7 @@ export default {
         "title-lg": ["28px", "35px"],
         "title-md": ["24px", "30px"],
         "title-md2": ["26px", "30px"],
-        "title-sm": ["20px", "26px"],
+        "title-sm": ["14px", "26px"],
         "title-xsm": ["18px", "24px"],
       },
     },
